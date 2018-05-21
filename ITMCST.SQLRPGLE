@@ -1,12 +1,15 @@
 000100180419**FREE
-000101180419ctl-opt dftactgrp(*no) actgrp('CARLO') decedit('0.')
-000102180419        bnddir('YAJL') option(*srcstmt: *nodebugio: *noshowcpy);
-000103180419
-000104180420/include YAJL/QRPGLESRC,YAJL_H
-000105180419
-000106180419dcl-c UPPER const('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-000107180419dcl-c lower const('abcdefghijklmnopqrstuvwxyz');
+000101180521
+000102180521// Returns an item cost as a JSON formatted response to http request
+000103180521
+000104180419ctl-opt dftactgrp(*no) actgrp('CARLO') decedit('0.')
+000105180419        bnddir('YAJL') option(*srcstmt: *nodebugio: *noshowcpy);
+000106180419
+000107180420/include YAJL/QRPGLESRC,YAJL_H
 000108180419
+000109180419dcl-c UPPER const('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+000110180419dcl-c lower const('abcdefghijklmnopqrstuvwxyz');
+000111180419
 000112180419// data template in reponse template
 000113180419dcl-ds data_t qualified template;
 000114180419   itemnum char(15) inz('');
