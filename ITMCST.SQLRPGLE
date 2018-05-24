@@ -1,28 +1,30 @@
 000100180419**FREE
-000101180521
+000101180524// REST Style Web Service
 000102180521// Returns an item cost as a JSON formatted response to http request
-000103180521
-000104180419ctl-opt dftactgrp(*no) actgrp('CARLO') decedit('0.')
-000105180419        bnddir('YAJL') option(*srcstmt: *nodebugio: *noshowcpy);
-000106180419
-000107180420/include YAJL/QRPGLESRC,YAJL_H
+000103180524// Example: ppi:10180/rest/itmcst/100021
+000104180524// Example: 128.13.1.1:10180/rest/itmcst/170114
+000105180521
+000106180419ctl-opt dftactgrp(*no) actgrp('CARLO') decedit('0.')
+000107180419        bnddir('YAJL') option(*srcstmt: *nodebugio: *noshowcpy);
 000108180419
-000109180419dcl-c UPPER const('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-000110180419dcl-c lower const('abcdefghijklmnopqrstuvwxyz');
-000111180419
-000112180419// data template in reponse template
-000113180419dcl-ds data_t qualified template;
-000114180419   itemnum char(15) inz('');
-000115180420   cost zoned(15: 8) inz(0);
-000117180419end-ds;
-000118180419
-000119180419// response template
-000120180419dcl-ds itemcost_t qualified template;
-000121180419   success ind inz(*on);
-000122180419   errorMsg varchar(500) inz('');
-000123180419   data likeds(data_t) inz(*likeds);
-000124180419end-ds;
-000125180419
+000109180420/include YAJL/QRPGLESRC,YAJL_H
+000110180419
+000111180419dcl-c UPPER const('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+000112180419dcl-c lower const('abcdefghijklmnopqrstuvwxyz');
+000113180419
+000114180419// data template in reponse template
+000115180419dcl-ds data_t qualified template;
+000116180419   itemnum char(15) inz('');
+000117180420   cost zoned(15: 8) inz(0);
+000118180419end-ds;
+000119180419
+000120180419// response template
+000121180419dcl-ds itemcost_t qualified template;
+000122180419   success ind inz(*on);
+000123180419   errorMsg varchar(500) inz('');
+000124180419   data likeds(data_t) inz(*likeds);
+000125180419end-ds;
+000126180419
 000127180419// the response data structure
 000128180419dcl-ds itemcost likeds(itemcost_t) inz(*likeds);
 000129180419
